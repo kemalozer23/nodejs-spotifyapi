@@ -4,19 +4,13 @@ const albumRepository = require('../../infrastructure/repository/album/album.rep
 const trackRepository = require('../../infrastructure/repository/track/track.repository');
 
 async function getAlbum(id) {
-  let album = albumRepository.getAlbum(id);
-  if (album === null) {
+  let album = await albumRepository.getAlbum(id);
+  if (album == null) {
     album = await spotifyApiClient.getAlbum(id);
+    console.log(album.tracks);
     albumRepository.insertAlbum(album);
+    album = await albumRepository.getAlbum(id);
   }
-  const tracks = await spotifyApiClient.getAlbumTracks(id);
-  tracks.forEach(async (track) => {
-    let storedTrack = trackRepository.getTrack(track.id);
-    if (storedTrack === null) {
-      storedTrack = await spotifyApiClient.getTrack(track.id);
-      trackRepository.insertTrack(storedTrack);
-    }
-  });
   return album;
 }
 

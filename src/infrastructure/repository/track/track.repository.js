@@ -27,14 +27,14 @@ async function getTrack(id) {
   return new Track(
     result.rows[0].id,
     result.rows[0].name,
-    result.rows[0].albumId,
-    result.rows[0].albumName,
+    result.rows[0].albumid,
+    result.rows[0].albumname,
     result.rows[0].duration_ms,
     result.rows[0].external_urls,
     result.rows[0].href,
     result.rows[0].preview_url,
-    result.rows[0].artistId,
-    result.rows[0].artistName
+    result.rows[0].artistid,
+    result.rows[0].artistname
   );
 }
 

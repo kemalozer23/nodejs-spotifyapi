@@ -51,6 +51,13 @@ async function getArtist(id) {
   return artist;
 }
 
+async function getArtistAlbums(id) {
+  const url = `${spotifyApiBaseUrl}/artists/${id}/albums`;
+  const albums = await get(url);
+  return albums.items;
+}
+
+
 async function getAlbum(id) {
   const url = `${spotifyApiBaseUrl}/albums/${id}`;
   const album = await get(url);
@@ -71,6 +78,7 @@ async function getTrack(id) {
 
 module.exports = {
   getArtist,
+  getArtistAlbums,
   getAlbum,
   getAlbumTracks,
   getTrack,
