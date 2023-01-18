@@ -24,6 +24,10 @@ app.use('/api/album', albumRoute);
 app.use('/api/track', trackRoute);
 app.use('/api/auth', authRoute);
 
+app.get('/', (req, res) => {
+  res.sendFile( __dirname + '/home.html')
+})
+
 module.exports = {
   app,
 };
