@@ -16,6 +16,7 @@ const app = express();
 
 app.use(helmet());
 app.use(cors());
+
 app.use(bodyParser.json());
 app.use(morgan('combined'));
 
@@ -23,10 +24,6 @@ app.use('/api/artist', artistRoute);
 app.use('/api/album', albumRoute);
 app.use('/api/track', trackRoute);
 app.use('/api/auth', authRoute);
-
-app.get('/', (req, res) => {
-  res.sendFile( __dirname + '/home.html')
-})
 
 module.exports = {
   app,

@@ -4,6 +4,6 @@ const albumController = require('./album.controller');
 
 const router = express.Router();
 
-router.use('/albums', albumController);
+router.use('/', albumController);
 
 module.exports = router;

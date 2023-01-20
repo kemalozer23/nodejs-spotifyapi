@@ -4,6 +4,6 @@ const artistController = require('./artist.controller');
 
 const router = express.Router();
 
-router.use('/artists', artistController);
+router.use('/', artistController);
 
 module.exports = router;

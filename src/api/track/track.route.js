@@ -4,6 +4,6 @@ const trackController = require('./track.controller');
 
 const router = express.Router();
 
-router.use('/tracks', trackController);
+router.use('/', trackController);
 
 module.exports = router;
